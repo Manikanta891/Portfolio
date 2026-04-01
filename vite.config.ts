@@ -6,22 +6,18 @@ import path from "path";
 export default defineConfig({
   base: "/",
   server: {
-    host: "::",
+    host: true,
+    allowedHosts: ["portfolio-zss7.onrender.com"],
     port: 8080,
     hmr: {
       overlay: false,
     },
     proxy: {
       "/api": {
-        target: "https://portfolio-zss7.onrender.com/",
+        target: "http://localhost:8787",
         changeOrigin: true,
       },
     },
   },
   plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
 });
