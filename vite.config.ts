@@ -13,7 +13,7 @@ export default defineConfig({
     },
     proxy: {
       "/api": {
-        target: "http://localhost:8787",
+        target: "https://portfolio-zss7.onrender.com/",
         changeOrigin: true,
       },
     },
