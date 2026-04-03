@@ -27,5 +27,22 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
+  optimizeDeps: {
+    include: [
+      "react",
+      "react-dom",
+      "react/jsx-dev-runtime",
+      "react/jsx-runtime",
+      "sonner",
+    ],
+  },
+  ssr: {
+    noExternal: ["react", "react-dom", "sonner"],
+  },
 });
 
