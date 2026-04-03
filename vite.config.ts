@@ -10,6 +10,7 @@ export default defineConfig({
   server: {
     host: "::",
     port: 8080,
+    allowedHosts: ["portfolio-zss7.onrender.com"],
     hmr: {
       overlay: false,
     },
