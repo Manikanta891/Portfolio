@@ -1,23 +1,30 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import { fileURLToPath } from "url";
 import path from "path";
 
-// https://vitejs.dev/config/
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
   base: "/",
   server: {
-    host: true,
-    allowedHosts: ["portfolio-zss7.onrender.com"],
+    host: "::",
     port: 8080,
     hmr: {
       overlay: false,
     },
     proxy: {
       "/api": {
-        target: "http://localhost:8787",
+        target: "https://portfolio-zss7.onrender.com/",
         changeOrigin: true,
       },
     },
   },
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 });
+
