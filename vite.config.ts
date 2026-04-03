@@ -6,7 +6,7 @@ import path from "path";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/",
+  base: "./",
   server: {
     host: "::",
     port: 8080,
@@ -35,14 +35,14 @@ export default defineConfig({
   optimizeDeps: {
     include: [
       "react",
-      "react-dom",
-      "react/jsx-dev-runtime",
+      "react-dom/client",
       "react/jsx-runtime",
-      "sonner",
+      "react/jsx-dev-runtime",
     ],
+    exclude: [],
   },
   ssr: {
-    noExternal: ["react", "react-dom", "sonner"],
+    noExternal: [/^(?!react|react-dom)/],
   },
 });
 
