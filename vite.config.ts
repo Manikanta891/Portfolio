@@ -6,8 +6,8 @@ import path from "path";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/",
-  server: {
+    base: process.env.VITE_BASE_PATH || '/',    
+    server: {
     host: "::",
     port: 8080,
     allowedHosts: ["portfolio-zss7.onrender.com"],
