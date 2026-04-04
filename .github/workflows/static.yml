@@ -30,7 +30,7 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: VITE_BASE_PATH=/Portfolio/ npm run build
+        run: VITE_BASE_PATH=/Portfolio/ VITE_API_URL=https://blog-service-hqk6.onrender.com npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
